@@ -4,5 +4,5 @@
 
 
 source = new EventSource('/statuses/events')
-source.addEventListener 'message', (e) ->
+source.addEventListener 'statuses.create', (e) ->
   $('body').append($('<p>').text(e.data))
