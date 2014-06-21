@@ -14,22 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-// $( document ).ready(function() {
-//     console.log( "ready!" );
-// });
-
-// source = new EventSource('/messages/events')
-// source.addEventListener 'messages.create', (e) ->
-//   message = $.parseJSON(e.data).message
-//   $('#chat').append($('<li>').text("#{message.name}: #{message.content}"))
-
-// $(document).ready(function() {
-//   setTimeout(function() {
-//     var source = new EventSource('/statuses/index');
-//     source.addEventListener('refresh', function(e) {
-//       debugger
-//       // window.location.reload();
-//     });
-//   }, 1);
-// });

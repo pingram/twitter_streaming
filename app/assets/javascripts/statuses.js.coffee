@@ -5,4 +5,9 @@
 
 source = new EventSource('/statuses/events')
 source.addEventListener 'statuses.create', (e) ->
-  $('body').append($('<p>').text(e.data))
+  status = $.parseJSON(e.data)
+  $new_el = $('<li>').text(status.text + ' ' + getPrettyTimestamp(status.utc_seconds))
+  $('#status-list').append($new_el)
+
+getPrettyTimestamp = (utcSeconds) ->
+  date = new Date(utcSeconds * 1000)

@@ -1,1 +1,10 @@
 <h1>Statuses#index</h1>
+
+<ul id="status-list">
+  <% @statuses.each do |status| %>
+    <li>
+      <%= status.text %><br>
+      <%= status.utc_seconds %>
+    </li>
+  <% end %>
+</ul>
