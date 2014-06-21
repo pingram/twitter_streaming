@@ -9,7 +9,3 @@ source.addEventListener 'statuses.create', (e) ->
   $liHtml = status.text + ' <span>' + getPrettyTimestamp(status.utc_seconds) + '</span>'
   $new_el = $('<li>').html($liHtml)
   $('#status-list').append($new_el)
-
-getPrettyTimestamp = (utcSeconds) ->
-  date = new Date(utcSeconds * 1000)
-  prettyDate(date)

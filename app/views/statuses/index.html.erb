@@ -8,3 +8,15 @@
     </li>
   <% end %>
 </ul>
+
+<script type="application/json" id="bootstrapped_statuses_json">
+  { "statuses": <%= @statuses.to_json.html_safe %> }
+</script>
+
+<script>
+  var data = JSON.parse($("#bootstrapped_statuses_json").html());
+  for (var i = 0, n = data.statuses.length; i < n; i++) {
+    var st = data.statuses[i];
+    appendStatus(st);
+  }
+</script>

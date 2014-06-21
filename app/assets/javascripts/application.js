@@ -17,3 +17,15 @@
 //= require pretty_date
 
 // setInterval(function(){ $("span").prettyDate(); }, 5000);
+
+function appendStatus(status) {
+  var $liHtml = status.text + ' <span>' + getPrettyTimestamp(status.utc_seconds)
+    + '</span>';
+  var $new_el = $('<li>').html($liHtml);
+  $('#status-list').append($new_el);
+}
+
+function getPrettyTimestamp(utcSeconds) {
+  var date = new Date(utcSeconds * 1000);
+  prettyDate(date);
+}
