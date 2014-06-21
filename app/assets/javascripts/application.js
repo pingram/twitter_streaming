@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require pretty_date
+
+// setInterval(function(){ $("span").prettyDate(); }, 5000);
