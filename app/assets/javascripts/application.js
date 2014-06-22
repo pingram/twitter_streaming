@@ -29,6 +29,5 @@ function appendStatus(status) {
       + prettyDate(status.created_at)
     + '</span>';
   var $new_el = $('<li>').html($liHtml);
-  $('#status-list').append($new_el);
+  $('#status-list').prepend($new_el);
 }
-

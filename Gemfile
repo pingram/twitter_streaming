@@ -50,6 +50,7 @@ group :development do
 end
 
 gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 gem 'tweetstream'
 gem 'puma'
 gem 'figaro'

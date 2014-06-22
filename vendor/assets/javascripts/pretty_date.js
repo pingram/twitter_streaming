@@ -26,6 +26,8 @@ function prettyDate(time){
     day_diff == 1 && "Yesterday" ||
     day_diff < 7 && day_diff + " days ago" ||
     day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+
+  return time
 }
 
 // If jQuery is included in the page, adds a jQuery plugin to handle it as well
