@@ -17,7 +17,8 @@ function prettyDate(time){
     return;
       
   return day_diff == 0 && (
-      diff < 60 && "just now" ||
+      diff < 5 && "just now" ||
+      diff < 60 && Math.floor(diff) + " seconds ago" ||
       diff < 120 && "1 minute ago" ||
       diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
       diff < 7200 && "1 hour ago" ||
@@ -28,13 +29,12 @@ function prettyDate(time){
 }
 
 // If jQuery is included in the page, adds a jQuery plugin to handle it as well
-if ( typeof jQuery != "undefined" ) {
-  jQuery.fn.prettyDate = function(){
-    return this.each(function(){
-      debugger
-      var date = prettyDate(this.text);
-      if ( date )
-        jQuery(this).text( date );
-    });
-  };
-}
+// if ( typeof jQuery != "undefined" ) {
+//   jQuery.fn.prettyDate = function(){
+//     return this.each(function(){
+//       var date = prettyDate(this.text);
+//       if ( date )
+//         jQuery(this).text( date );
+//     });
+//   };
+// }

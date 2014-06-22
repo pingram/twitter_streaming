@@ -16,11 +16,19 @@
 //= require_tree .
 //= require pretty_date
 
-// setInterval(function(){ $("span").prettyDate(); }, 5000);
+setInterval(function(){
+  $('span').each(function () {
+    $span = $(this);
+    $span.html(prettyDate($span.attr('data-date')));
+  })
+}, 5000);
 
 function appendStatus(status) {
-  var $liHtml = status.text + ' <span>' + prettyDate(status.created_at)
+  var $liHtml = status.text
+    + ' <span data-date=' + status.created_at + '>'
+      + prettyDate(status.created_at)
     + '</span>';
   var $new_el = $('<li>').html($liHtml);
   $('#status-list').append($new_el);
 }
+
