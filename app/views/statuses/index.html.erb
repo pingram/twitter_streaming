@@ -1,12 +1,9 @@
 <h1>Statuses#index</h1>
 
+<%= logger.info @statuses.to_json.html_safe %>
+
 <ul id="status-list">
-  <% @statuses.each do |status| %>
-    <li>
-      <%= status.text %><br>
-      <%= status.utc_seconds %>
-    </li>
-  <% end %>
+
 </ul>
 
 <script type="application/json" id="bootstrapped_statuses_json">

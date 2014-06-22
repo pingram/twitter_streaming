@@ -6,6 +6,4 @@
 source = new EventSource('/statuses/events')
 source.addEventListener 'statuses.create', (e) ->
   status = $.parseJSON(e.data)
-  $liHtml = status.text + ' <span>' + getPrettyTimestamp(status.utc_seconds) + '</span>'
-  $new_el = $('<li>').html($liHtml)
-  $('#status-list').append($new_el)
+  appendStatus(status)

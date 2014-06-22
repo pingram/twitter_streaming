@@ -19,13 +19,8 @@
 // setInterval(function(){ $("span").prettyDate(); }, 5000);
 
 function appendStatus(status) {
-  var $liHtml = status.text + ' <span>' + getPrettyTimestamp(status.utc_seconds)
+  var $liHtml = status.text + ' <span>' + prettyDate(status.created_at)
     + '</span>';
   var $new_el = $('<li>').html($liHtml);
   $('#status-list').append($new_el);
-}
-
-function getPrettyTimestamp(utcSeconds) {
-  var date = new Date(utcSeconds * 1000);
-  prettyDate(date);
 }

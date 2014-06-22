@@ -7,11 +7,12 @@
 // Takes an ISO time and returns a string representing how
 // long ago the date represents.
 function prettyDate(time){
-  var date = time
-  // var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
-    diff = (((new Date()).getTime() - date.getTime()) / 1000),
-    day_diff = Math.floor(diff / 86400);
-      
+
+  var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," "));
+  var diff = (((new Date()).getTime() - date.getTime()) / 1000)
+    + date.getTimezoneOffset() * 60;
+  var day_diff = Math.floor(diff / 86400);
+
   if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
     return;
       
@@ -27,11 +28,13 @@ function prettyDate(time){
 }
 
 // If jQuery is included in the page, adds a jQuery plugin to handle it as well
-if ( typeof jQuery != "undefined" )
+if ( typeof jQuery != "undefined" ) {
   jQuery.fn.prettyDate = function(){
     return this.each(function(){
-      var date = prettyDate(this.title);
+      debugger
+      var date = prettyDate(this.text);
       if ( date )
         jQuery(this).text( date );
     });
   };
+}
