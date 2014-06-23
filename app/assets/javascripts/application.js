@@ -25,11 +25,11 @@ setInterval(function(){
 
 function appendStatus(status) {
   var $divRow = $('<div>').addClass('row');
-  var $divText = $('<div>').text(status.text).addClass('col-md-8 col-md-offset-1');
+  var $divText = $('<div>').text(status.text).addClass('col-xs-8 col-xs-offset-1');
   var $divTime = $('<div>').addClass('date')
     .attr('data-date', status.created_at)
     .text(prettyDate(status.created_at))
-    .addClass('col-md-3');
+    .addClass('col-xs-3');
 
   $divRow.append($divText).append($divTime);
   $('#status-list').prepend($divRow);
