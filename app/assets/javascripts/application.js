@@ -17,17 +17,20 @@
 //= require pretty_date
 
 setInterval(function(){
-  $('span').each(function () {
-    $span = $(this);
-    $span.html(prettyDate($span.attr('data-date')));
+  $('div .date').each(function () {
+    $div = $(this);
+    $div.html(prettyDate($div.attr('data-date')));
   })
 }, 5000);
 
 function appendStatus(status) {
-  var $liHtml = status.text
-    + ' <span data-date=' + status.created_at + '>'
-      + prettyDate(status.created_at)
-    + '</span>';
-  var $new_el = $('<li>').html($liHtml);
-  $('#status-list').prepend($new_el);
+  var $divRow = $('<div>').addClass('row');
+  var $divText = $('<div>').text(status.text).addClass('col-md-8 col-md-offset-1');
+  var $divTime = $('<div>').addClass('date')
+    .attr('data-date', status.created_at)
+    .text(prettyDate(status.created_at))
+    .addClass('col-md-3');
+
+  $divRow.append($divText).append($divTime);
+  $('#status-list').prepend($divRow);
 }

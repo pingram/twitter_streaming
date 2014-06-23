@@ -1,8 +1,7 @@
-<h2>Your recent tweets:</h2>
+<h2 class="col-md-offset-1">Your recent tweets:</h2>
 
-<ul id="status-list">
-  
-</ul>
+<div id="status-list"></div>
+
 
 <script type="application/json" id="bootstrapped_statuses_json">
   { "statuses": <%= @statuses.to_json.html_safe %> }

@@ -1,5 +1,3 @@
-require 'sse'
-
 class StatusesController < ApplicationController
   include ActionController::Live
 
